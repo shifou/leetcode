@@ -1,7 +1,8 @@
+#code I found online which can spider all the code from leetcode with bugs fixed to make it work correctly. 
 import urllib2
 import cookielib
 import urllib
-mydir = r'pwd'
+mydir = r'path'
 myhost = r'https://oj.leetcode.com' 
 def saveCode(code,title):
      global mydir
