@@ -2,13 +2,19 @@
 import urllib2
 import cookielib
 import urllib
+import os
 mydir = r'path'
 myhost = r'https://oj.leetcode.com' 
 def saveCode(code,title):
-     global mydir
-     f = open(mydir + title + '.cpp','w')
-     f.write(code)
-
+    global mydir
+    path = mydir +title +'.cpp'
+    e = os.path.exists(path)
+    if e:
+        print "file exist"
+        return None
+    f = open(path,'w')
+    f.write(code)
+    f.close()
 def downloadCode(refer,codeadd,title):
     global headers
     global urlOpener
@@ -58,7 +64,7 @@ def findAdd(page):
             title = page[finis + 2:tmpfin]
             #print myhost + page[start + 9:finis],title
             findCode(myhost + page[start + 9:finis],title)
-            #break;
+            break;
         else:
             break
 
